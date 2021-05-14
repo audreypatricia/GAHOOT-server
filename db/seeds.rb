@@ -65,9 +65,9 @@ puts "#{ Question.count } questions"
 #     t.datetime "updated_at", null: false
 #   end
 
-Quiz.destroy_all 
+Quiz.destroy_all
 quiz1 = Quiz.create :category => 'mixed', :title => 'random'
-puts "#{ Quiz.count } quizzes" 
+puts "#{ Quiz.count } quizzes"
 
 #   _table "users"
 #     t.text "password"
@@ -88,11 +88,8 @@ puts "#{ User.count } users"
 ####################assoc.##############
 
 puts "games and users"
-# game1.users << u1 << u2 << u3 << u4 << u5
+game1.users << u1 << u2 << u3 << u4 << u5
 u1.games << game1
 
 puts "game and quiz"
 quiz1.games << game1
-
-
-
