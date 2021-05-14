@@ -93,3 +93,22 @@ u1.games << game1
 
 puts "game and quiz"
 quiz1.games << game1
+
+
+puts "guesses and users"
+u1.guesses << guess1
+u2.guesses << guess2
+u3.guesses << guess3
+u4.guesses << guess4
+u5.guesses << guess5
+
+puts "guess and game"
+game1.guesses << guess1 << guess2 << guess3 << guess4 << guess5 << guess6 << guess7
+
+puts "quiz ques."
+quiz1.questions << q1 << q2
+
+puts "guess and questions"
+q1.guesses << guess1 << guess2 << guess3 << guess4 << guess5
+
+
