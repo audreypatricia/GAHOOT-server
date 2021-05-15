@@ -70,7 +70,7 @@ quiz1 = Quiz.create :category => 'mixed', :title => 'random'
 puts "#{ Quiz.count } quizzes"
 
 #   _table "users"
-#     t.text "password"
+#     t.text "password_digest"
 #     t.text "username"
 #     t.boolean "host", default: false
 #     t.datetime "created_at", null: false
@@ -78,11 +78,11 @@ puts "#{ Quiz.count } quizzes"
 #   end
 
 User.destroy_all
-u1 = User.create :username => 'Audrey', :password => 'chicken'
-u2 = User.create :username => 'Katie', :password => 'chicken'
-u3 = User.create :username => 'Paul', :password => 'chicken'
-u4 = User.create :username => 'David', :password => 'chicken'
-u5 = User.create :username => 'Sam', :password => 'chicken'
+u1 = User.create :username => 'Audrey', :password_digest => 'chicken'
+u2 = User.create :username => 'Katie', :password_digest => 'chicken'
+u3 = User.create :username => 'Paul', :password_digest => 'chicken'
+u4 = User.create :username => 'David', :password_digest => 'chicken'
+u5 = User.create :username => 'Sam', :password_digest => 'chicken'
 puts "#{ User.count } users"
 
 ####################assoc.##############
