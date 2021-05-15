@@ -15,7 +15,7 @@
 #   end
 
 Game.destroy_all
-game1 = Game.create :quiz_id => 1, :pin => '1234567'
+game1 = Game.create :quiz_id => 1, :pin => '1234567', :players => [["Audrey", "200"],["Paul", "300"], ["Katie", "400"]]
 puts "#{ Game.count } games"
 
 #   create_table "games_users", id: false, force: :cascade do |t|
