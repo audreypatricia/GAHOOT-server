@@ -78,11 +78,11 @@ puts "#{ Quiz.count } quizzes"
 #   end
 
 User.destroy_all
-u1 = User.create :username => 'Audrey', :password_digest => 'chicken'
-u2 = User.create :username => 'Katie', :password_digest => 'chicken'
-u3 = User.create :username => 'Paul', :password_digest => 'chicken'
-u4 = User.create :username => 'David', :password_digest => 'chicken'
-u5 = User.create :username => 'Sam', :password_digest => 'chicken'
+u1 = User.create :username => 'Audrey', :email => 'audrey@ga.com',:password_digest => 'chicken'
+u2 = User.create :username => 'Katie',  :email => 'katie@ga.com',:password_digest => 'chicken'
+u3 = User.create :username => 'Paul', :email => 'paul@ga.com', :password_digest => 'chicken'
+u4 = User.create :username => 'David', :email => 'david@ga.com', :password_digest => 'chicken'
+u5 = User.create :username => 'Sam', :email => 'sam@ga.com', :password_digest => 'chicken'
 puts "#{ User.count } users"
 
 ####################assoc.##############
