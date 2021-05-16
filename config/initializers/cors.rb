@@ -1,6 +1,6 @@
-Rails.application.config.middleware.insert_before 0, Rack::Cors do 
+Rails.application.config.middleware.insert_before 0, Rack::Cors do
     allow do
-      origins 'http://localhost:3000', 'http://localhost:3001', 'https://gahoot-client.herokuapp.com' ##this needs an explicit list of your URLs on heroku
+      origins 'http://localhost:3000', 'http://localhost:3001', 'https://gahoot-client.herokuapp.com', 'http://localhost:3001' ##this needs an explicit list of your URLs on heroku
 
       resource '*',
         headers: :any,
