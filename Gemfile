@@ -27,11 +27,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'rack-cors'
 
-<<<<<<< HEAD
-gem 'rack-cors'
+
 gem 'cloudinary'
-=======
->>>>>>> 45f1ff10c2b2e577515f602e43d41f645e4d9012
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
