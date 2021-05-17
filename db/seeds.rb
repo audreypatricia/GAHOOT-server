@@ -21,7 +21,7 @@ game3 = Game.create :quiz_id => 6, :pin => '1234567', :players => [["Audrey", "4
 game4 = Game.create :quiz_id => 7, :pin => '1234567', :players => [["Paul", "300"],["David", "300"], ["Katie", "100"]]
 game5 = Game.create :quiz_id => 8, :pin => '1234567', :players => [["Sam", "600"],["Audrey", "300"], ["Katie", "500"]]
 game6 = Game.create :quiz_id => 9, :pin => '1234567', :players => [["Paul", "700"],["Katie", "300"], ["Katie", "400"]]
-puts "#{ Game.count } games"
+puts "#{ Game.count } games created"
 
 #   create_table "games_users", id: false, force: :cascade do |t|
 #     t.integer "game_id"
@@ -45,7 +45,7 @@ guess4 = Guess.create guess: false
 guess5 = Guess.create guess: true
 guess6 = Guess.create guess: false
 guess7 = Guess.create guess: true
-puts "#{Guess.count} guesses"
+puts "#{Guess.count} guesses created"
 
 #   create_table "questions", force: :cascade do |t|
 #     t.integer "quiz_id"
@@ -64,7 +64,7 @@ q4 = Question.create :question => "What is the biggest Island in the world?", :a
 q5 = Question.create :question => "The largest ocean in the world is...", :answer_options => ['Pacific', 'Atlantic', 'Indian', 'Arctic', '0']
 q6 = Question.create :question => "Who was the first computer programmer?", :answer_options => ['Ada Lovelace', 'Michael Jordan', 'Homer Simpson', 'Tim Berners-Lee', '0']
 q7 = Question.create :question => "Who invented the internet?", :answer_options => ['Joel Turnbull', 'Tim Berners-Lee', 'Dr. Emmett Brown', 'Dr. Seuss', '1']
-puts "#{ Question.count } questions"
+puts "#{ Question.count } questions created"
 
 #   create_table "quizzes", force: :cascade do |t|
 #     t.text "category"
@@ -81,7 +81,7 @@ quiz3 = Quiz.create :category => 'Trivia', :title => 'Test3'
 quiz4 = Quiz.create :category => 'General knowledge', :title => 'Test4'
 quiz5 = Quiz.create :category => 'Education', :title => 'Test5'
 quiz6 = Quiz.create :category => 'Trivia', :title => 'Test6'
-puts "#{ Quiz.count } quizzes"
+puts "#{ Quiz.count } quizzes created"
 
 #   _table "users"
 #     t.text "password"
@@ -92,12 +92,12 @@ puts "#{ Quiz.count } quizzes"
 #   end
 
 User.destroy_all
-u1 = User.create username: 'Audrey', email: 'audrey@ga.com', password: 'chicken'
-u2 = User.create username: 'Katie',  email: 'katie@ga.com', password: 'chicken'
-u3 = User.create username: 'Paul', email: 'paul@ga.com', password: 'chicken'
-u4 = User.create username: 'David', email: 'david@ga.com', password: 'chicken'
-u5 = User.create username: 'Sam', email: 'sam@ga.com', password: 'chicken'
-puts "#{User.count} users"
+u1 = User.create username: 'Audrey', email: 'audrey@ga.com', password: 'chicken', host:true
+u2 = User.create username: 'Katie',  email: 'katie@ga.com', password: 'chicken', host:true
+u3 = User.create username: 'Paul', email: 'paul@ga.com', password: 'chicken', host:true
+u4 = User.create username: 'David', email: 'david@ga.com', password: 'chicken', host:true
+u5 = User.create username: 'Sam', email: 'sam@ga.com', password: 'chicken', host:true
+puts "#{User.count} hosts created"
 
 # ###################assoc.##############
 
