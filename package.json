@@ -1,5 +1,4 @@
 {
   "name": "gahoot-server",
-  "private": true,
-  "dependencies": {}
+  "private": true
 }
