@@ -15,14 +15,13 @@
 #   end
 
 Game.destroy_all
-game1 = Game.create :quiz_id => 1, :pin => '1234567', :players => [["Audrey", "200"],["Paul", "300"], ["Katie", "400"]]
-puts "#{ Game.count } games"
+game1 = Game.create quiz_id: 1, pin: '1234567', players: [%w[Audrey 200], %w[Paul 300], %w[Katie 400]]
+puts "#{Game.count} games"
 
 #   create_table "games_users", id: false, force: :cascade do |t|
 #     t.integer "game_id"
 #     t.integer "user_id"
 #   end
-
 
 #   create_table "guesses", force: :cascade do |t|
 #     t.integer "game_id"
@@ -34,14 +33,14 @@ puts "#{ Game.count } games"
 #   end
 
 Guess.destroy_all
-guess1 = Guess.create :guess => true
-guess2 = Guess.create :guess => false
-guess3 = Guess.create :guess => true
-guess4 = Guess.create :guess => false
-guess5 = Guess.create :guess => true
-guess6 = Guess.create :guess => false
-guess7 = Guess.create :guess => true
-puts "#{ Guess.count } guesses"
+guess1 = Guess.create guess: true
+guess2 = Guess.create guess: false
+guess3 = Guess.create guess: true
+guess4 = Guess.create guess: false
+guess5 = Guess.create guess: true
+guess6 = Guess.create guess: false
+guess7 = Guess.create guess: true
+puts "#{Guess.count} guesses"
 
 #   create_table "questions", force: :cascade do |t|
 #     t.integer "quiz_id"
@@ -53,9 +52,10 @@ puts "#{ Guess.count } guesses"
 #   end
 
 Question.destroy_all
-q1 = Question.create :question => "whats in my pocket?", :answer_options => ['handsies', 'lint', 'the one ring', 'a monkey', '2']
-q2 = Question.create :question => "whats 1 + 1?", :answer_options => ['11', '2', '1+1', '3', '1']
-puts "#{ Question.count } questions"
+q1 = Question.create question: 'whats in my pocket?',
+                     answer_options: ['handsies', 'lint', 'the one ring', 'a monkey', '2']
+q2 = Question.create question: 'whats 1 + 1?', answer_options: ['11', '2', '1+1', '3', '1']
+puts "#{Question.count} questions"
 
 #   create_table "quizzes", force: :cascade do |t|
 #     t.text "category"
@@ -66,11 +66,11 @@ puts "#{ Question.count } questions"
 #   end
 
 Quiz.destroy_all
-quiz1 = Quiz.create :category => 'mixed', :title => 'random'
-puts "#{ Quiz.count } quizzes"
+quiz1 = Quiz.create category: 'mixed', title: 'random'
+puts "#{Quiz.count} quizzes"
 
 #   _table "users"
-#     t.text "password_digest"
+#     t.text "password"
 #     t.text "username"
 #     t.boolean "host", default: false
 #     t.datetime "created_at", null: false
@@ -78,39 +78,37 @@ puts "#{ Quiz.count } quizzes"
 #   end
 
 User.destroy_all
-u1 = User.create :username => 'Audrey', :email => 'audrey@ga.com',:password_digest => 'chicken'
-u2 = User.create :username => 'Katie',  :email => 'katie@ga.com',:password_digest => 'chicken'
-u3 = User.create :username => 'Paul', :email => 'paul@ga.com', :password_digest => 'chicken'
-u4 = User.create :username => 'David', :email => 'david@ga.com', :password_digest => 'chicken'
-u5 = User.create :username => 'Sam', :email => 'sam@ga.com', :password_digest => 'chicken'
-puts "#{ User.count } users"
+u1 = User.create username: 'Audrey', email: 'audrey@ga.com', password: 'chicken'
+u2 = User.create username: 'Katie',  email: 'katie@ga.com', password: 'chicken'
+u3 = User.create username: 'Paul', email: 'paul@ga.com', password: 'chicken'
+u4 = User.create username: 'David', email: 'david@ga.com', password: 'chicken'
+u5 = User.create username: 'Sam', email: 'sam@ga.com', password: 'chicken'
+puts "#{User.count} users"
 
-####################assoc.##############
+# ###################assoc.##############
 
-puts "games and users"
+puts 'games and users'
 game1.users << u1 << u2 << u3 << u4 << u5
 u1.games << game1
 
-puts "game and quiz"
+puts 'game and quiz'
 quiz1.games << game1
 
-
-puts "guesses and users"
+puts 'guesses and users'
 u1.guesses << guess1
 u2.guesses << guess2
 u3.guesses << guess3
 u4.guesses << guess4
 u5.guesses << guess5
 
-puts "guess and game"
+puts 'guess and game'
 game1.guesses << guess1 << guess2 << guess3 << guess4 << guess5 << guess6 << guess7
 
-puts "quiz ques."
+puts 'quiz ques.'
 quiz1.questions << q1 << q2
 
-puts "guess and questions"
+puts 'guess and questions'
 q1.guesses << guess1 << guess2 << guess3 << guess4 << guess5
 
-
-puts "user and quiz"
+puts 'user and quiz'
 u1.quizzes << quiz1
