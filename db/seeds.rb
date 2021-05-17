@@ -140,5 +140,4 @@ q1.guesses << guess1 << guess2 << guess3 << guess4 << guess5
 
 
 puts "user and quiz"
-u1.quizzes << quiz1 g
-y
+u1.quizzes << quiz1
