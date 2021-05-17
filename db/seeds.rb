@@ -15,8 +15,18 @@
 #   end
 
 Game.destroy_all
+<<<<<<< HEAD
 game1 = Game.create quiz_id: 1, pin: '1234567', players: [%w[Audrey 200], %w[Paul 300], %w[Katie 400]]
 puts "#{Game.count} games"
+=======
+game1 = Game.create :quiz_id => 4, :pin => '1234567', :players => [["Audrey", "200"],["Paul", "300"], ["Katie", "600"]]
+game2 = Game.create :quiz_id => 5, :pin => '1234567', :players => [["David", "300"],["Sam", "300"], ["Katie", "800"]]
+game3 = Game.create :quiz_id => 6, :pin => '1234567', :players => [["Audrey", "400"],["Katie", "300"], ["Katie", "600"]]
+game4 = Game.create :quiz_id => 7, :pin => '1234567', :players => [["Paul", "300"],["David", "300"], ["Katie", "100"]]
+game5 = Game.create :quiz_id => 8, :pin => '1234567', :players => [["Sam", "600"],["Audrey", "300"], ["Katie", "500"]]
+game6 = Game.create :quiz_id => 9, :pin => '1234567', :players => [["Paul", "700"],["Katie", "300"], ["Katie", "400"]]
+puts "#{ Game.count } games"
+>>>>>>> 050f2a95e580816a0fbb2a7e38b247a45348d812
 
 #   create_table "games_users", id: false, force: :cascade do |t|
 #     t.integer "game_id"
@@ -52,10 +62,21 @@ puts "#{Guess.count} guesses"
 #   end
 
 Question.destroy_all
+<<<<<<< HEAD
 q1 = Question.create question: 'whats in my pocket?',
                      answer_options: ['handsies', 'lint', 'the one ring', 'a monkey', '2']
 q2 = Question.create question: 'whats 1 + 1?', answer_options: ['11', '2', '1+1', '3', '1']
 puts "#{Question.count} questions"
+=======
+q1 = Question.create :question => "whats in my pocket?", :answer_options => ['handsies', 'lint', 'the one ring', 'a monkey', '2']
+q2 = Question.create :question => "whats 1 + 1?", :answer_options => ['11', '2', '1+1', '3', '1']
+q3 = Question.create :question => "What colour is the sun", :answer_options => ['Yellow', 'Red', 'Orange', 'White', '3']
+q4 = Question.create :question => "What is the biggest Island in the world?", :answer_options => ['Australia', 'Greenland', 'New Guinea', 'Madagascar', '1']
+q5 = Question.create :question => "The largest ocean in the world is...", :answer_options => ['Pacific', 'Atlantic', 'Indian', 'Arctic', '0']
+q6 = Question.create :question => "Who was the first computer programmer?", :answer_options => ['Ada Lovelace', 'Michael Jordan', 'Homer Simpson', 'Tim Berners-Lee', '0']
+q7 = Question.create :question => "Who invented the internet?", :answer_options => ['Joel Turnbull', 'Tim Berners-Lee', 'Dr. Emmett Brown', 'Dr. Seuss', '1']
+puts "#{ Question.count } questions"
+>>>>>>> 050f2a95e580816a0fbb2a7e38b247a45348d812
 
 #   create_table "quizzes", force: :cascade do |t|
 #     t.text "category"
@@ -66,8 +87,18 @@ puts "#{Question.count} questions"
 #   end
 
 Quiz.destroy_all
+<<<<<<< HEAD
 quiz1 = Quiz.create category: 'mixed', title: 'random'
 puts "#{Quiz.count} quizzes"
+=======
+quiz1 = Quiz.create :category => 'General knowledge', :title => 'Test1'
+quiz2 = Quiz.create :category => 'Education', :title => 'Test2'
+quiz3 = Quiz.create :category => 'Trivia', :title => 'Test3'
+quiz4 = Quiz.create :category => 'General knowledge', :title => 'Test4'
+quiz5 = Quiz.create :category => 'Education', :title => 'Test5'
+quiz6 = Quiz.create :category => 'Trivia', :title => 'Test6'
+puts "#{ Quiz.count } quizzes"
+>>>>>>> 050f2a95e580816a0fbb2a7e38b247a45348d812
 
 #   _table "users"
 #     t.text "password"
@@ -89,10 +120,20 @@ puts "#{User.count} users"
 
 puts 'games and users'
 game1.users << u1 << u2 << u3 << u4 << u5
+game2.users << u1 << u2 << u3 << u4 << u5
+game3.users << u1 << u2 << u3 << u4 << u5
+game4.users << u1 << u2 << u3 << u4 << u5
+game5.users << u1 << u2 << u3 << u4 << u5
+game6.users << u1 << u2 << u3 << u4 << u5
 u1.games << game1
 
 puts 'game and quiz'
 quiz1.games << game1
+quiz2.games << game2
+quiz3.games << game3
+quiz4.games << game4
+quiz5.games << game5
+quiz6.games << game6
 
 puts 'guesses and users'
 u1.guesses << guess1
@@ -106,6 +147,8 @@ game1.guesses << guess1 << guess2 << guess3 << guess4 << guess5 << guess6 << gue
 
 puts 'quiz ques.'
 quiz1.questions << q1 << q2
+quiz2.questions << q3 << q4
+quiz3.questions << q5 << q6 << q7
 
 puts 'guess and questions'
 q1.guesses << guess1 << guess2 << guess3 << guess4 << guess5

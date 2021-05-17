@@ -1,6 +1,5 @@
 ---
 development:
-<<<<<<< HEAD
   cloud_name: Rails.applications.secrets.cloudinary_cloud_name
   api_key: Rails.applications.secrets.cloudinary_api_key
   api_secret: Rails.applications.secrets.cloudinary_api_secret
@@ -16,22 +15,5 @@ test:
   cloud_name: Rails.applications.secrets.cloudinary_cloud_name
   api_key: Rails.applications.secrets.cloudinary_api_key
   api_secret: Rails.applications.secrets.cloudinary_api_secret
-=======
-  cloud_name: Rails.application.secrets.cloudinary_cloud_name
-  api_key: Rails.application.secrets.cloudinary_api_key
-  api_secret: Rails.application.secrets.cloudinary_api_secret
-  enhance_image_tag: true
-  static_file_support: false
-production:
-  cloud_name: Rails.application.secrets.cloudinary_cloud_name
-  api_key: Rails.application.secrets.cloudinary_api_key
-  api_secret: Rails.application.secrets.cloudinary_api_secret
-  enhance_image_tag: true
-  static_file_support: true
-test:
-  cloud_name: Rails.application.secrets.cloudinary_cloud_name
-  api_key: Rails.application.secrets.cloudinary_api_key
-  api_secret: Rails.application.secrets.cloudinary_api_secret
->>>>>>> 45f1ff10c2b2e577515f602e43d41f645e4d9012
   enhance_image_tag: true
   static_file_support: false
