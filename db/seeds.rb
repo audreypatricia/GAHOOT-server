@@ -15,12 +15,12 @@
 #   end
 
 Game.destroy_all
-game1 = Game.create :quiz_id => 4, :pin => '1234567', :players => [["Audrey", "200"],["Paul", "300"], ["Katie", "600"]]
-game2 = Game.create :quiz_id => 5, :pin => '1234567', :players => [["David", "300"],["Sam", "300"], ["Katie", "800"]]
-game3 = Game.create :quiz_id => 6, :pin => '1234567', :players => [["Audrey", "400"],["Katie", "300"], ["Katie", "600"]]
-game4 = Game.create :quiz_id => 7, :pin => '1234567', :players => [["Paul", "300"],["David", "300"], ["Katie", "100"]]
-game5 = Game.create :quiz_id => 8, :pin => '1234567', :players => [["Sam", "600"],["Audrey", "300"], ["Katie", "500"]]
-game6 = Game.create :quiz_id => 9, :pin => '1234567', :players => [["Paul", "700"],["Katie", "300"], ["Katie", "400"]]
+game1 = Game.create :quiz_id => 4, :pin => '012345', :players => [["Audrey", "200"],["Paul", "300"], ["Katie", "600"]]
+game2 = Game.create :quiz_id => 5, :pin => '123456', :players => [["David", "300"],["Sam", "300"], ["Katie", "800"]]
+game3 = Game.create :quiz_id => 6, :pin => '234567', :players => [["Audrey", "400"],["Katie", "300"], ["Katie", "600"]]
+game4 = Game.create :quiz_id => 7, :pin => '345678', :players => [["Paul", "300"],["David", "300"], ["Katie", "100"]]
+game5 = Game.create :quiz_id => 8, :pin => '456789', :players => [["Sam", "600"],["Audrey", "300"], ["Katie", "500"]]
+game6 = Game.create :quiz_id => 9, :pin => '567890', :players => [["Paul", "700"],["Katie", "300"], ["Katie", "400"]]
 puts "#{ Game.count } games created"
 
 #   create_table "games_users", id: false, force: :cascade do |t|
