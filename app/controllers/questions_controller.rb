@@ -15,7 +15,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    image = Cloudinary: :Uploader.upload(params[:image])
+    image = Cloudinary::Uploader.upload(params[:image])
     question = Question.create :image => image["url"], :question => params[:question], :answer_options => params[:answer_options]
     render json: question
     # @question = Question.new(question_params)
