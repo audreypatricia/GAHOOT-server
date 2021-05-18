@@ -31,16 +31,20 @@ class QuizzesController < ApplicationController
   end
 
   def create
-    @quiz = Quiz.new(quiz_params)
+    # @quiz = Quiz.new(quiz_params)
+    #
+    # respond_to do |format|
+    #   if @quiz.save
+    #     format.html { redirect_to @quiz, notice: "Quiz was successfully created." }
+    #     format.json { render :show, status: :created, location: @quiz }
+    #   else
+    #     format.html { render :new, status: :unprocessable_entity }
+    #     format.json { render json: @quiz.errors, status: :unprocessable_entity }
+    #   end
 
-    respond_to do |format|
-      if @quiz.save
-        format.html { redirect_to @quiz, notice: "Quiz was successfully created." }
-        format.json { render :show, status: :created, location: @quiz }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @quiz.errors, status: :unprocessable_entity }
-      end
+    quiz = Quiz.create :title => params[:quiz][:title], :category => params[:quiz][:category], :user_id => params[:quiz][:user_id]
+    render json: quiz
+
     end
   end
 

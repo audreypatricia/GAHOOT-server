@@ -15,9 +15,23 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    image = Cloudinary::Uploader.upload(params[:image])
-    question = Question.create :image => image["url"], :question => params[:question], :answer_options => params[:answer_options]
-    render json: question
+
+    #what I had before, when each question was its own form
+    # image = Cloudinary::Uploader.upload(params[:image])
+    # question = Question.create :image => image["url"], :question => params[:question], :answer_options => params[:answer_options]
+    # render json: question
+
+    quiz = Quiz.create :title => params[:quiz][:title], :category => params[:quiz][:category], :user_id => params[:quiz][:user_id]
+
+    params[:questions].each do |q|
+      image = Cloudinary::Uploader.upload(q[:image])
+      question = Question.create :question => q[:question], :image => image["url"], :answer_options => q[:answer_options]
+      quiz.questions << question
+      render json: question
+    end
+
+
+
     # @question = Question.new(question_params)
     #
     # respond_to do |format|
