@@ -20,12 +20,28 @@ class QuestionsController < ApplicationController
     # image = Cloudinary::Uploader.upload(params[:image])
     # question = Question.create :image => image["url"], :question => params[:question], :answer_options => params[:answer_options]
     # render json: question
+    quizData = JSON.parse(params[:quiz])
+    quiz = Quiz.create :title => quizData["title"], :category => quizData["category"], :user_id => quizData["user_id"]
 
-    quiz = Quiz.create :title => params[:quiz][:title], :category => params[:quiz][:category], :user_id => params[:quiz][:user_id]
+    images = []
+    # require 'pry'
+    # binding.pry
+    params[:image].each do |i|
+      image = Cloudinary::Uploader.upload(i)
+      images << image
+    end
 
-    params[:questions].each do |q|
-      image = Cloudinary::Uploader.upload(q[:image])
-      question = Question.create :question => q[:question], :image => image["url"], :answer_options => q[:answer_options]
+    quesData = JSON.parse(params[:questions])
+    # require 'pry'
+    # binding.pry
+    quesData.each_with_index do |q, index|
+      # image = Cloudinary::Uploader.upload(q["image"])
+      question = Question.create :question => q["question"], :answer_options => q["answer_options"]
+
+      if images[index].present?
+        question.update :image => images[index]["url"]
+      end
+      # question = Question.create :question => q["question"], :answer_options => q["answer_options"]
       quiz.questions << question
       render json: question
     end

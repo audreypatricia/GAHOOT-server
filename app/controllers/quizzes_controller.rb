@@ -41,11 +41,13 @@ class QuizzesController < ApplicationController
     #     format.html { render :new, status: :unprocessable_entity }
     #     format.json { render json: @quiz.errors, status: :unprocessable_entity }
     #   end
+    data = JSON.parse(params[:quiz])
+    
 
-    quiz = Quiz.create :title => params[:quiz][:title], :category => params[:quiz][:category], :user_id => params[:quiz][:user_id]
+    quiz = Quiz.create :title => data["title"], :category => data["category"], :user_id => data["user_id"]
     render json: quiz
 
-    end
+
   end
 
 
