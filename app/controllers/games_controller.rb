@@ -5,6 +5,7 @@ class GamesController < ApplicationController
   end
 
   def show
+    @game = Game.find(params[:id])
   end
 
   def new
@@ -14,5 +15,39 @@ class GamesController < ApplicationController
   def edit
   end
 
+  def create
+    @game = Game.new(game_params)
 
+    respond_to do |format|
+      if @game.save
+        format.html { redirect_to @game, notice: "Game was successfully created." }
+        format.json { render :show, status: :created, location: @game }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @game.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
+  def update
+    respond_to do |format|
+      if @game.update(game_params)
+        format.html { redirect_to @game, notice: "Game was successfully updated." }
+        format.json { render :show, status: :ok, location: @game }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @game.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  private
+    def set_game
+      @game = Game.find(params[:id])
+    end
+
+  def game_params
+    params.require(:game).permit(:pin, :quiz_id)
+  end
 end
