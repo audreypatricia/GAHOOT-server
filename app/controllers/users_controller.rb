@@ -29,6 +29,8 @@ class UsersController < ApplicationController
         end
       end
     end
+
+    render :json => { :status => "okay!" }
   end
 
   def show
