@@ -15,7 +15,7 @@
 #   end
 
 Game.destroy_all
-game1 = Game.create :quiz_id => 4, :pin => '012345', :players => [["Audrey", "200"],["Paul", "300"], ["Katie", "600"]]
+game1 = Game.create :quiz_id => 4, :pin => '012345', :players => []
 game2 = Game.create :quiz_id => 5, :pin => '123456', :players => [["David", "300"],["Sam", "300"], ["Katie", "800"]]
 game3 = Game.create :quiz_id => 6, :pin => '234567', :players => [["Audrey", "400"],["Katie", "300"], ["Katie", "600"]]
 game4 = Game.create :quiz_id => 7, :pin => '345678', :players => [["Paul", "300"],["David", "300"], ["Katie", "100"]]
@@ -83,20 +83,23 @@ quiz5 = Quiz.create :category => 'Education', :title => 'Test5'
 quiz6 = Quiz.create :category => 'Trivia', :title => 'Test6'
 puts "#{ Quiz.count } quizzes created"
 
-#   _table "users"
-#     t.text "password"
-#     t.text "username"
-#     t.boolean "host", default: false
-#     t.datetime "created_at", null: false
-#     t.datetime "updated_at", null: false
-#   end
+# create_table "users", force: :cascade do |t|
+#   t.text "username"
+#   t.boolean "host", default: false
+#   t.datetime "created_at", null: false
+#   t.datetime "updated_at", null: false
+#   t.text "password_digest"
+#   t.text "email"
+#   t.text "pin"
+#   t.integer "score"
+# end
 
 User.destroy_all
-u1 = User.create username: 'Audrey', email: 'audrey@ga.com', password: 'chicken', host:true
-u2 = User.create username: 'Katie',  email: 'katie@ga.com', password: 'chicken', host:true
-u3 = User.create username: 'Paul', email: 'paul@ga.com', password: 'chicken', host:true
-u4 = User.create username: 'David', email: 'david@ga.com', password: 'chicken', host:true
-u5 = User.create username: 'Sam', email: 'sam@ga.com', password: 'chicken', host:true
+u1 = User.create username: 'Audrey', email: 'audrey@ga.com', :pin => '012345', :score => '0', password: 'chicken', host:true
+u2 = User.create username: 'Katie',  email: 'katie@ga.com', :pin => '012345', :score => '0', password: 'chicken', host:true
+u3 = User.create username: 'Paul', email: 'paul@ga.com', :pin => '543210', :score => '0', password: 'chicken', host:true
+u4 = User.create username: 'David', email: 'david@ga.com', :pin => '543210', :score => '0', password: 'chicken', host:true
+u5 = User.create username: 'Sam', email: 'sam@ga.com', :pin => '543210', :score => '0', password: 'chicken', host:true
 puts "#{User.count} hosts created"
 
 # ###################assoc.##############

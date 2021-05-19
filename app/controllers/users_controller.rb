@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def index
     @users = User.all
     if @users
@@ -11,6 +12,30 @@ class UsersController < ApplicationController
         errors: ['no users found']
       }
     end
+  end
+
+  def check
+    users = User.all
+
+    groups = users.group_by{ |user| user.pin }
+
+    players = groups.keys.map {|k| groups[k].pluck(:pin, :username,:score)}
+
+    games = Game.all
+
+    games.each do |game|
+      players.each do |player|
+        if game.pin == player[0][0]
+          game.players = player
+          game.save
+          p game
+        end
+        raise 'hell'
+      end
+    end
+
+
+
   end
 
   def show
@@ -26,7 +51,7 @@ class UsersController < ApplicationController
       }
     end
   end
-  
+
   def create
     @user = User.new(user_params)
     if @user.save
@@ -35,17 +60,17 @@ class UsersController < ApplicationController
         status: :created,
         user: @user
       }
-    else 
+    else
       render json: {
         status: 500,
         errors: @user.errors.full_messages
       }
     end
   end
+
 private
-  
+
   def user_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation, :host, :pin, :score)
   end
 end
-
