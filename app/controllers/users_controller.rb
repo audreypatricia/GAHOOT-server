@@ -30,12 +30,10 @@ class UsersController < ApplicationController
           game.save
           p game
         end
-        raise 'hell'
+
       end
     end
-
-
-
+    render json: players
   end
 
   def show
