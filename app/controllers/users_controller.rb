@@ -15,12 +15,10 @@ class UsersController < ApplicationController
   end
 
   def check
+
     users = User.all
-
     groups = users.group_by{ |user| user.pin }
-
     players = groups.keys.map {|k| groups[k].pluck(:pin, :username,:score)}
-
     games = Game.all
 
     games.each do |game|
@@ -28,12 +26,11 @@ class UsersController < ApplicationController
         if game.pin == player[0][0]
           game.players = player
           game.save
-          p game
         end
-
       end
     end
-    render json: players
+
+    render :json => { :status => "okay!" }
   end
 
   def show
