@@ -85,6 +85,7 @@ class UsersController < ApplicationController
 
   def update
     respond_to do |format|
+      @user = User.find params[:id]
       @user.update :score => params[:score]
 
       if @user.update(user_params)
