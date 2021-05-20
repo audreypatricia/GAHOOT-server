@@ -33,6 +33,23 @@ class UsersController < ApplicationController
     render :json => { :status => "okay!" }
   end
 
+  def getQuiz
+    user = User.find(params[:id]) # get current user 
+    pin = user.pin
+
+    games = Game.all
+    quiz_id = ''
+
+    games.each do |game|
+      if game.pin == pin
+        quiz_id = game.quiz_id
+        break
+    end
+
+    render :json => { :quiz_id => quiz_id }
+
+  end
+
   def show
     @user = User.find(params[:id])
    if @user

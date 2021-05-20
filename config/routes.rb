@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/logged_in', to: 'sessions#is_logged_in?'
 
   get '/users/check' => 'users#check'
+  get '/users/getQuiz' => 'users#getQuiz'
 
   resources :guesses
   resources :games
