@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   end
 
   def getQuiz
-    user = User.find(params[:id]) # get current user 
+    user = User.find(params[:id]) # get current user
     pin = user.pin
 
     games = Game.all
@@ -44,6 +44,7 @@ class UsersController < ApplicationController
       if game.pin == pin
         quiz_id = game.quiz_id
         break
+      end
     end
 
     render :json => { :quiz_id => quiz_id }
