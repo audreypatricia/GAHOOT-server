@@ -39,15 +39,17 @@ class UsersController < ApplicationController
 
     games = Game.all
     quiz_id = ''
+    game_id = ''
 
     games.each do |game|
       if game.pin == pin
         quiz_id = game.quiz_id
+        game_id = game.id
         break
       end
     end
 
-    render :json => { :quiz_id => quiz_id }
+    render :json => { :quiz_id => quiz_id, :game_id => game_id }
 
   end
 
