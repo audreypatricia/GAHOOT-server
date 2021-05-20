@@ -50,6 +50,6 @@ class GamesController < ApplicationController
     end
 
   def game_params
-    params.require(:game).permit(:pin, :quiz_id, :players)
+    params.require(:game).permit(:pin, :quiz_id, :players, :gameStart)
   end
 end
