@@ -33,11 +33,12 @@ class GamesController < ApplicationController
   def update
     respond_to do |format|
       # @game.update :players => params[:players]
-      puts @game + " ---------------------------------------- "
-      require 'pry'
-      binding.pry
+      puts @game
+      puts  " ---------------------------------------- "
+    
       @game.update :gameStart => params[:gameStart]
-      puts params[:gameStart] + "!?  !!!!!!!!!!!!!!!!!      "
+      puts params[:gameStart]
+      puts "!?  !!!!!!!!!!!!!!!!!      "
 
       if @game.update(game_params)
         format.html { redirect_to @game, notice: "Game was successfully updated." }
