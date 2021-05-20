@@ -12,6 +12,8 @@
 #     t.text "users", default: [], array: true
 #     t.datetime "created_at", null: false
 #     t.datetime "updated_at", null: false
+#     t.text "players", default: [], array: true
+#     t.boolean "gameStart", default: false
 #   end
 
 Game.destroy_all
@@ -57,13 +59,26 @@ puts "#{Guess.count} guesses created"
 #   end
 
 Question.destroy_all
-q1 = Question.create :question => "whats in my pocket?", :answer_options => ['handsies', 'lint', 'the one ring', 'a monkey', '2']
-q2 = Question.create :question => "whats 1 + 1?", :answer_options => ['11', '2', '1+1', '3', '1']
-q3 = Question.create :question => "What colour is the sun", :answer_options => ['Yellow', 'Red', 'Orange', 'White', '3']
-q4 = Question.create :question => "What is the biggest Island in the world?", :answer_options => ['Australia', 'Greenland', 'New Guinea', 'Madagascar', '1']
-q5 = Question.create :question => "The largest ocean in the world is...", :answer_options => ['Pacific', 'Atlantic', 'Indian', 'Arctic', '0']
-q6 = Question.create :question => "Who was the first computer programmer?", :answer_options => ['Ada Lovelace', 'Michael Jordan', 'Homer Simpson', 'Tim Berners-Lee', '0']
-q7 = Question.create :question => "Who invented the internet?", :answer_options => ['Joel Turnbull', 'Tim Berners-Lee', 'Dr. Emmett Brown', 'Dr. Seuss', '1']
+q1 = Question.create :question => "What iss in my pocket?", :answer_options => ['handsies', 'lint', 'the one ring', 'a monkey', '2'], :image => "https://res.cloudinary.com/paulyc/image/upload/v1621437839/lightbulbBrain_t62g5v.jpg"
+q2 = Question.create :question => "What is 1 + 1?", :answer_options => ['11', '2', '1+1', '3', '1'], :image => "https://res.cloudinary.com/paulyc/image/upload/v1621437839/lightbulbBrain_t62g5v.jpg"
+q3 = Question.create :question => "What colour is the sun", :answer_options => ['Yellow', 'Red', 'Orange', 'White', '3'], :image => "https://res.cloudinary.com/paulyc/image/upload/v1621437839/lightbulbBrain_t62g5v.jpg"
+q4 = Question.create :question => "What is the biggest Island in the world?", :answer_options => ['Australia', 'Greenland', 'New Guinea', 'Madagascar', '1'], :image => "https://res.cloudinary.com/paulyc/image/upload/v1621437839/lightbulbBrain_t62g5v.jpg"
+q5 = Question.create :question => "The largest ocean in the world is...", :answer_options => ['Pacific', 'Atlantic', 'Indian', 'Arctic', '0'], :image => "https://res.cloudinary.com/paulyc/image/upload/v1621437839/lightbulbBrain_t62g5v.jpg"
+q6 = Question.create :question => "Who was the first computer programmer?", :answer_options => ['Ada Lovelace', 'Michael Jordan', 'Homer Simpson', 'Tim Berners-Lee', '0'], :image => "https://res.cloudinary.com/paulyc/image/upload/v1621437839/lightbulbBrain_t62g5v.jpg"
+q7 = Question.create :question => "Who invented the internet?", :answer_options => ['Joel Turnbull', 'Tim Berners-Lee', 'Dr. Emmett Brown', 'Dr. Seuss', '1'], :image => "https://res.cloudinary.com/paulyc/image/upload/v1621437839/lightbulbBrain_t62g5v.jpg"
+q8 = Question.create :question => "Which of the following ingredients is not normally used to brew beer?", :answer_options => ['Hops', 'Yeast', 'Malt', 'Vinegar', '3'], :image => "https://res.cloudinary.com/paulyc/image/upload/v1621437839/lightbulbBrain_t62g5v.jpg"
+q9 = Question.create :question => "How fast can an ostrich run?", :answer_options => ['25 km/hr', '50 km/hr', '65 km/hr', '75 km/hr', '2'], :image => "https://res.cloudinary.com/paulyc/image/upload/v1621437839/lightbulbBrain_t62g5v.jpg"
+q10 = Question.create :question => "How much of your vision do you lose if you go blind in one eye?", :answer_options => ['50 percent', '10 percent', '35 percent', '20 percent', '3'], :image => "https://res.cloudinary.com/paulyc/image/upload/v1621437839/lightbulbBrain_t62g5v.jpg"
+q11 = Question.create :question => "How many breaths does the human body take daily?", :answer_options => ['20,000', '10,000', '30,000', '40,000', '0'], :image => "https://res.cloudinary.com/paulyc/image/upload/v1621437839/lightbulbBrain_t62g5v.jpg"
+q12 = Question.create :question => "What is the lifespan of a dragonfly?", :answer_options => ['24 hours', '24 days', '24 years', '24 minutes', '0'], :image => "https://res.cloudinary.com/paulyc/image/upload/v1621437839/lightbulbBrain_t62g5v.jpg"
+q13 = Question.create :question => "Which actor played the ninth reincarnation of the Doctor in Doctor Who?", :answer_options => ['William Hartnell', 'Christopher Eccleston', 'Tom Baker', 'Jon Pertwee', '1'], :image => "https://res.cloudinary.com/paulyc/image/upload/v1621437839/lightbulbBrain_t62g5v.jpg"
+q14 = Question.create :question => "Which colour pill does Neo swallow in The Matrix?", :answer_options => ['Blue', 'Red', 'Yellow', 'Green', '1'], :image => "https://res.cloudinary.com/paulyc/image/upload/v1621437839/lightbulbBrain_t62g5v.jpg"
+q15 = Question.create :question => "What language is spoken in Brazil?", :answer_options => ['English', 'Gibberish', 'Spanish', 'Portuguese', '3'], :image => "https://res.cloudinary.com/paulyc/image/upload/v1621437839/lightbulbBrain_t62g5v.jpg"
+q16 = Question.create :question => "What is the currency of Vietnam?", :answer_options => ['Dollar', 'Dong', 'DogeCoin', 'Bitcoin', '1'], :image => "https://res.cloudinary.com/paulyc/image/upload/v1621437839/lightbulbBrain_t62g5v.jpg"
+q17 = Question.create :question => "How many notes are there in a musical scale?", :answer_options => ['7', '8', '17', '18', '0'], :image => "https://res.cloudinary.com/paulyc/image/upload/v1621437839/lightbulbBrain_t62g5v.jpg"
+q18 = Question.create :question => "How many hearts does an octopus have?", :answer_options => ['1', '2', '3', '4', '2'], :image => "https://res.cloudinary.com/paulyc/image/upload/v1621437839/lightbulbBrain_t62g5v.jpg"
+q19 = Question.create :question => "How many elements are in the periodic table?", :answer_options => ['108', '118', '128', '138', '1'], :image => "https://res.cloudinary.com/paulyc/image/upload/v1621437839/lightbulbBrain_t62g5v.jpg"
+q20 = Question.create :question => "Which Marx Brother lived the longest at 86 years of age?", :answer_options => ['Zeppo', 'Groucho', 'Chico', 'Gummo', '1'], :image => "https://res.cloudinary.com/paulyc/image/upload/v1621437839/lightbulbBrain_t62g5v.jpg"
 puts "#{ Question.count } questions created"
 
 #   create_table "quizzes", force: :cascade do |t|
@@ -132,9 +147,9 @@ puts 'guess and game'
 game1.guesses << guess1 << guess2 << guess3 << guess4 << guess5 << guess6 << guess7
 
 puts 'quiz ques.'
-quiz1.questions << q1 << q2
-quiz2.questions << q3 << q4
-quiz3.questions << q5 << q6 << q7
+quiz1.questions << q1 << q5 << q8 << q11 << q13 << q17
+quiz2.questions << q2 << q4 << q9 << q12 << q14 << q16
+quiz3.questions << q3 << q6 << q7 << q10 << q15 << q18
 
 puts 'guess and questions'
 q1.guesses << guess1 << guess2 << guess3 << guess4 << guess5
