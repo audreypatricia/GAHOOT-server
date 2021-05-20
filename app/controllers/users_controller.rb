@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
     users = User.all
     groups = users.group_by{ |user| user.pin }
-    players = groups.keys.map {|k| groups[k].pluck(:pin, :username,:score)}
+    players = groups.keys.map {|k| groups[k].pluck(:pin, :id, :username, :score)}
     games = Game.all
 
     games.each do |game|
