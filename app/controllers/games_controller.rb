@@ -33,6 +33,9 @@ class GamesController < ApplicationController
   def update
     respond_to do |format|
       # @game.update :players => params[:players]
+      puts @game + " ---------------------------------------- "
+      require 'pry'
+      binding.pry
       @game.update :gameStart => params[:gameStart]
       puts params[:gameStart] + "!?  !!!!!!!!!!!!!!!!!      "
 
