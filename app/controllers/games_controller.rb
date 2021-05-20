@@ -33,6 +33,7 @@ class GamesController < ApplicationController
   def update
     respond_to do |format|
       @game.update :players => params[:players]
+      @game.update :gameStart => params[:gameStart]
 
       if @game.update(game_params)
         format.html { redirect_to @game, notice: "Game was successfully updated." }
