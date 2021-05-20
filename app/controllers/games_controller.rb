@@ -33,9 +33,10 @@ class GamesController < ApplicationController
   def update
     respond_to do |format|
       # @game.update :players => params[:players]
+      @game = Game.find params[:id]
       puts @game
       puts  " ---------------------------------------- "
-    
+
       @game.update :gameStart => params[:gameStart]
       puts params[:gameStart]
       puts "!?  !!!!!!!!!!!!!!!!!      "
