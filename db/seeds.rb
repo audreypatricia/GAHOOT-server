@@ -147,7 +147,7 @@ puts 'guess and game'
 game1.guesses << guess1 << guess2 << guess3 << guess4 << guess5 << guess6 << guess7
 
 puts 'quiz ques.'
-quiz1.questions << q1 << q5 << q8 << q11 << q13 << q17
+quiz1.questions << q1 << q5 << q8 << q11 << q13 << q17 << q19 << q20
 quiz2.questions << q2 << q4 << q9 << q12 << q14 << q16
 quiz3.questions << q3 << q6 << q7 << q10 << q15 << q18
 
